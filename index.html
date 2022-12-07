@@ -88,7 +88,7 @@
       <img src="img/articletop.png" width="400"/>
   		<img src="img/intro.png"  height= "400" width="400"/>
 
-  		<p>To continue reading article go to <a href="https://www.southernliving.com/travel/north-carolina/north-carolina-christmas-tree-farms">Southern Living</a>!</p>
+  		<p>To continue reading article go to <a href="https://www.southernliving.com/travel/north-carolina/north-carolina-christmas-tree-farms" target="_blank">Southern Living</a>!</p>
 
 
   	</section>
@@ -102,11 +102,17 @@
       zoom: 10, //this line adjusts the starting zoom level of the map
       maxZoom: 20,//this line sets the maximum zoom level
       minZoom: 6,//this line sets the minimum zoom level
-      detectRetina: true // detect whether the screen is high resolution or not.
+      detectRetina: true, // detect whether the screen is high resolution or not.
+      zoomControl: false
   };
+
+
 
   var mymap = L.map('map', options);
 
+  L.control.zoom({
+    position:'topright'
+  }).addTo(mymap);
 
   // 2. Add a base map.
   L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png').addTo(mymap);
@@ -150,7 +156,7 @@ var colors = chroma.scale('Dark2').mode('lab').colors(5);
     // 5. dynamically append style classes to this page. The style classes will be used to shade the markers.
     // We can use a for loop to do this.
     for (i = 0; i < 3; i++) {
-        $('head').append($("<style> .marker-color-" + (i + 1).toString() + " { color: " + colors[i] + "; font-size: 20px; text-shadow: 0 0 3px #ffffff;} </style>"));
+        $('head').append($("<style> .marker-color-" + (i + 1).toString() + " { color: " + colors[i] + "; font-size: 25px; text-shadow: 0 0 3px #ffffff;} </style>"));
     }
 
   L.control.scale({position: 'bottomleft'}).addTo(mymap);
