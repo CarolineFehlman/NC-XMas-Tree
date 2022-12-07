@@ -51,7 +51,10 @@
 			position: absolute;
 			bottom: 0;
 			left: 10px;
+      height: 900px;
+      min-height: 400px;
 			width: 450px;
+      min-width: 100px;
 			margin: 20px auto;
 			padding: 0 15px;
 			background: rgba(256, 256, 256);
@@ -62,6 +65,7 @@
 		}
 
   #map {
+    position: relative;
   width: 100%;
    height: 100%;
   }
@@ -93,10 +97,10 @@
   <div id='map'></div>
 
 
-      <section>
+      <section >
   		<h2>The Best Christmas Tree Farms To Visit In North Carolina</h2>
-      <img src="img/articletop.png" width="400"/>
-  		<img src="img/intro.png"  height= "400" width="400"/>
+      <img src="img/articletop.png" width="400" min-width="100"/>
+  		<img src="img/intro.png"  height= "400" width="400" min-width="100"/>
 
   		<p>To continue reading article go to <a href="https://www.southernliving.com/travel/north-carolina/north-carolina-christmas-tree-farms" target="_blank">Southern Living</a>!</p>
 
@@ -108,9 +112,9 @@
   <script>
 
   var options =  {
-      center: [36.2,-81.5], //note that we've centered the map to downtown AVL
-      zoom: 10, //this line adjusts the starting zoom level of the map
-      maxZoom: 20,//this line sets the maximum zoom level
+      center: [36.05026,-81.5], //note that we've centered the map to downtown AVL
+      zoom: 8, //this line adjusts the starting zoom level of the map
+      maxZoom: 15,//this line sets the maximum zoom level
       minZoom: 6,//this line sets the minimum zoom level
       detectRetina: true, // detect whether the screen is high resolution or not.
       zoomControl: false
