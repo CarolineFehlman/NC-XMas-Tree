@@ -75,6 +75,32 @@
         max-height: 200px;
       }
 
+
+      .legend {
+            line-height: 30px;
+            font-size: 16px;
+            width: 100px;
+            color: #333333;
+            padding: 6px 8px;
+            background: white;
+            background: rgba(255,255,255,0.5);
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            border-radius: 5px;
+        }
+        .legend i {
+            width: 20px;
+            height: 20px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.99;
+        }
+        .legend img {
+            width: 16px;
+            height: 16px;
+            margin-right: 3px;
+            float: center;
+        }
+
     </style>
 
     <script src="https://unpkg.com/leaflet@1.7.0/dist/leaflet.js"></script>
@@ -162,7 +188,7 @@
               return L.marker(coordinates, {icon: L.divIcon({className: 'fas fa-tree marker-color-'+(id+1).toString()})});
             },
 
-            attribution: 'Christmas Tree Farms &copy; Google Maps | The Best Christmas Tree Farms To Visit In North Carolina; Southern Living Magazine | Base Map &copy; CartoDB | Caroline Fehlman: '
+            attribution: 'Christmas Tree Farms &copy; Google Maps | The Best Christmas Tree Farms To Visit In North Carolina; Southern Living Magazine | Base Map &copy; Stamen | Caroline Fehlman: '
 });
 // Add the Airbnbs to the map.
 xmastree.addTo(mymap);
@@ -174,6 +200,25 @@ var colors = chroma.scale('Dark2').mode('lab').colors(5);
     for (i = 0; i < 3; i++) {
         $('head').append($("<style> .marker-color-" + (i + 1).toString() + " { color: " + colors[i] + "; font-size: 25px; text-shadow: 0 0 3px #ffffff;} </style>"));
     }
+
+
+    var legend = L.control({position: 'bottomright'});
+
+          legend.onAdd = function () {
+
+              // Create Div Element and Populate it with HTML
+              var div = L.DomUtil.create('div', 'legend');
+              //this line creates a title for the choropleth part of the legend
+              div.innerHTML += '<b>Christmas Tree Farm</b><br />';
+              div.innerHTML += '<i class="fas fa-tree marker-color-1"></i>';
+
+              return div;
+          };
+
+          // 11. Add a legend to map
+          legend.addTo(mymap);
+
+
 
   L.control.scale({position: 'bottomleft'}).addTo(mymap);
 
