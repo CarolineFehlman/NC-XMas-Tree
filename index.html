@@ -126,10 +126,13 @@
           layer.bindPopup("<h3>" +
               feature.properties.Name +
               "</h3><p>" +
+              feature.properties.State+
+              "<br>"+
               feature.properties.City+
               "</p>" +
               "<a href="+
               feature.properties.Website +
+              "target='_blank'"+
               "/a>"+
               "<img src='" +
               feature.properties.img +
